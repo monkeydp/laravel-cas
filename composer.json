@@ -1,0 +1,32 @@
+{
+  "name": "monkeydp/laravel-cas",
+  "description": "Simple CAS Authentication for Laravel 5.5",
+  "keywords": [
+    "laravel",
+    "cas",
+    "phpCAS"
+  ],
+  "license": "MIT",
+  "require": {
+    "php": ">=7.0.0",
+    "illuminate/support": "5.5.*",
+    "illuminate/http": "5.5.*",
+    "apereo/phpCAS": "1.3.5"
+  },
+  "autoload": {
+    "psr-4": {
+      "Monkeydp\\Cas\\": "src/"
+    }
+  },
+  "extra": {
+    "laravel": {
+      "branch-alias": {
+        "dev-master": "0.*-dev"
+      },
+      "providers": [
+        "Monkeydp\\Cas\\ServiceProvider"
+      ]
+    }
+  },
+  "minimum-stability": "dev"
+}
