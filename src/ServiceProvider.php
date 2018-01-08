@@ -30,9 +30,7 @@ class ServiceProvider extends BaseServiceProvider
     {
         $this->loadRoutesFrom(__DIR__.'/routes.php');
 
-        $this->publishes([
-            $this->configPath(),
-        ]);
+        $this->publishes([$this->configPath() => config_path('cas.php')]);
     }
 
     protected function configPath()
