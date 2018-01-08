@@ -31,6 +31,8 @@ The defaults are set in `config/cas.php`. Copy this file to your own config dire
 $ php artisan vendor:publish --provider="Monkeydp\Cas\ServiceProvider"
 ```
 
+>This command not working in `cmd`
+
 In your `.env`, configuration is as follows
 
 ```$xslt
@@ -77,3 +79,5 @@ When you access `http://your.project.host/home`, the browser will redirect to `L
 ### Single Logout
 
 Just access `http://your.project.host/cas/logout`
+
+>Use `Get` request
