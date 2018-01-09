@@ -11,20 +11,15 @@ class HandleCas
 {
     public function handle(Request $request, Closure $next)
     {
-        phpCAS::setNoCasServerValidation();
+        $cert = Config::get('cas.server_cert');
 
-        if ($this->_isLogoutRequest($request))
-            phpCAS::handleLogoutRequests(true, Config::get('cas.allowed_clients'));
+        if ($cert)
+            phpCAS::setCasServerCACert($cert);
         else
-            phpCAS::forceAuthentication();
+            phpCAS::setNoCasServerValidation();
+
+        phpCAS::forceAuthentication();
 
         return $next($request);
-    }
-
-    private function _isLogoutRequest(Request $request)
-    {
-        $bool = $request->input('logoutRequest', false);
-
-        return $bool;
     }
 }

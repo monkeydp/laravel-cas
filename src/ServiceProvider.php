@@ -28,7 +28,7 @@ class ServiceProvider extends BaseServiceProvider
 
     public function boot()
     {
-        $this->loadRoutesFrom(__DIR__.'/routes.php');
+        $this->loadRoutesFrom(__DIR__ . '/routes.php');
 
         $this->publishes([$this->configPath() => config_path('cas.php')]);
     }

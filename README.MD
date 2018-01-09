@@ -41,6 +41,9 @@ CAS_SERVER_HOST=your.cas.server.host
 CAS_SERVER_PORT=443
 CAS_SERVER_URI=/cas
 
+# If the server cert is homemade, keep empty 
+CAS_SERVER_CA_CERT=/path/to/your/cert
+
 # An array of host names allowed to send logout requests, separated by ","
 CAS_ALLOWED_CLIENTS=192.168.10.114,192.168.20.10
 
