@@ -17,7 +17,7 @@ Simple CAS Authentication for Laravel 5.5
 
 ## Installation
 
-Require the `monkeydp/laravel-cas` package in your composer.json and update your dependencies:
+Require the `monkeydp/laravel-cas` package in your composer.json:
 
 ```$xslt
 $ composer require monkeydp/laravel-cas
@@ -37,12 +37,14 @@ In your `.env`, configuration is as follows
 
 ```$xslt
 CAS_SERVER_VERSION=3.0
-CAS_SERVER_HOST=your.cas.server.host
+CAS_SERVER_HOST=your.cas-server.host
 CAS_SERVER_PORT=443
-CAS_SERVER_URI=/cas
 
-# If the server cert is homemade, keep empty 
-CAS_SERVER_CA_CERT=/path/to/your/cert
+# Keep empty if cas-server in root
+CAS_SERVER_URI=/path/to/cas-server
+
+# Keep empty if the cert is homemade
+CAS_SERVER_CA_CERT=/path/to/cert
 
 # An array of host names allowed to send logout requests, separated by ","
 CAS_ALLOWED_CLIENTS=192.168.10.114,192.168.20.10
@@ -53,7 +55,7 @@ CAS_LOGOUT_REDIRECT_TO=http://your.project.host
 
 ## Register Route Middleware
 
-If you want to allow CAS on a specific route, add the `HandleCas` middleware to your `$routeMiddleware` in `app/Http/Kernel.php`:
+If you want to allow CAS on a specific route, add the `HandleCas` middleware to `$routeMiddleware` in `app/Http/Kernel.php`:
 
 ```$xslt
     protected $routeMiddleware = [
@@ -77,7 +79,7 @@ Route::group(['middleware' => 'cas'], function () {
 });
 ```
 
-When you access `http://your.project.host/home`, the browser will redirect to `Login Page` of your `CAS Server`
+When you access `http://your.project.host/home`, the browser will redirect to `Login Page` of `cas-server`
 
 ### Single Logout
 
